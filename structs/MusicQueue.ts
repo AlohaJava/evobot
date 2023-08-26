@@ -131,8 +131,6 @@ export class MusicQueue {
     this.songs = [];
     this.player.stop();
 
-    !config.PRUNING && this.textChannel.send(i18n.__("play.queueEnded")).catch(console.error);
-
     if (this.waitTimeout !== null) return;
 
     this.waitTimeout = setTimeout(() => {
@@ -143,8 +141,7 @@ export class MusicQueue {
       }
       bot.queues.delete(this.interaction.guild!.id);
 
-      !config.PRUNING && this.textChannel.send(i18n.__("play.leaveChannel"));
-    }, config.STAY_TIME * 1000);
+    }, 3260 * 1000);
   }
 
   public async processQueue(): Promise<void> {
@@ -181,16 +178,16 @@ export class MusicQueue {
     let playingMessage: Message;
 
     try {
-      playingMessage = await this.textChannel.send((newState.resource as AudioResource<Song>).metadata.startMessage());
+      //playingMessage = await this.textChannel.send((newState.resource as AudioResource<Song>).metadata.startMessage());
 
-      await playingMessage.react("⏭");
-      await playingMessage.react("⏯");
-      await playingMessage.react("🔇");
-      await playingMessage.react("🔉");
-      await playingMessage.react("🔊");
-      await playingMessage.react("🔁");
-      await playingMessage.react("🔀");
-      await playingMessage.react("⏹");
+      //await playingMessage.react("⏭");
+      //await playingMessage.react("⏯");
+      //await playingMessage.react("🔇");
+      //await playingMessage.react("🔉");
+      //await playingMessage.react("🔊");
+      //await playingMessage.react("🔁");
+      //await playingMessage.react("🔀");
+      //await playingMessage.react("⏹");
     } catch (error: any) {
       console.error(error);
       this.textChannel.send(error.message);
