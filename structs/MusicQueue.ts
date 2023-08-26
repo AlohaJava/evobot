@@ -98,7 +98,7 @@ export class MusicQueue {
 
         if (this.songs.length || this.resource.audioPlayer) this.processQueue();
       } else if (oldState.status === AudioPlayerStatus.Buffering && newState.status === AudioPlayerStatus.Playing) {
-        this.sendPlayingMessage(newState);
+        //this.sendPlayingMessage(newState);
       }
     });
 
