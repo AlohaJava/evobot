@@ -78,7 +78,9 @@ export default {
     if (queue) {
       queue.enqueue(song);
 
-      return;
+      return (interaction.channel as TextChannel)
+        .send({ content: i18n.__mf("play.queueAdded", { title: song.title, author: interaction.user.id }) })
+        .catch(console.error);
     }
 
     const newQueue = new MusicQueue({
